@@ -5,6 +5,12 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+.container-noticias-completa {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
 .row-news-emphasis {
   background-color: #d9d9d9;
 }
