@@ -1,15 +1,18 @@
-/* eslint-disable react/prop-types */
-const NoticiasPequenas = ({ url, title, desc }) => {
+import noticiasRecomendadas from "./recomendarNoticias";
+import "./PageNews.css";
+const NoticiasPequenas = () => {
   return (
     <div>
-      <div className="noticias-pequenas">
-        <img src={url} alt="noticias-pequenas" />
-        <div className="tituPara">
-          <h3>{title}</h3>
-          <p>{desc}</p>
-          <label>Ver mais</label>
+      {noticiasRecomendadas.map((item) => (
+        <div className="noticias-pequenas" key={item.id}>
+          <img src={item.url} alt="noticias-pequenas" />
+          <div className="tituPara">
+            <h3>{item.title}</h3>
+            <p>{item.desc}</p>
+            <label>Ver mais</label>
+          </div>
         </div>
-      </div>
+      ))}
     </div>
   );
 };

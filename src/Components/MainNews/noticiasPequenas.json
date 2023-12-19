@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "path": "./noticias/ultimas/chuvas.html",
+    "title": "Chuvas com ventos fortes derrubam árvores e estruturas em cidades de SP",
+    "data": "03/10/23",
+    "url": "https://conteudo.imguol.com.br/c/noticias/91/2023/11/18/fortes-chuvas-atingiram-paraguacu-paulista-1700355278260_v2_750x421.jpg.webp"
+  },
+  {
+    "id": 2,
+    "path": "./noticias/ultimas/eleicoes.html",
+    "title": "Eleições Argentina 2023",
+    "data": "03/10/23",
+    "url": "https://exame.com/_next/image/?url=https%3A%2F%2Fclassic.exame.com%2Fwp-content%2Fuploads%2F2023%2F08%2FArgentinaFMI.jpg%3Fquality%3D70%26strip%3Dinfo&w=1920&q=75"
+  },
+  {
+    "id": 3,
+    "path": "./noticias/ultimas/agro.html",
+    "title": "Agro paulista registra superávit de US$ 18,59 bilhões em 10 meses",
+    "data": "03/10/23",
+    "url": "https://www.cati.sp.gov.br/portal/themes/unify/img/noticias/13386-balanca.-ovk.jpg"
+  }
+]
