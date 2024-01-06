@@ -1,3 +1,4 @@
+import "./emphasisnews.css"
 const EmphasisNews = () => {
   const news = [
     {
