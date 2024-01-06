@@ -1,0 +1,19 @@
+.row-news-emphasis {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.newEmphasis li {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+}
+.newEmphasis {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  position: relative;
+  margin: 25px 0px;
+}
