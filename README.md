@@ -1,3 +1,5 @@
 # eNewsTechAlagoas
 
-## Criando o projeto de noticias de Alagoas com React
+## Projeto em desenvolvimento
+
+### Site que mostra as principais noticias de Alagoas.
