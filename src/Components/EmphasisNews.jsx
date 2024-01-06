@@ -1,4 +1,56 @@
-import "./emphasisnews.css"
+import styled from "styled-components";
+
+const ListsNoticiasDestaques = styled.ul`
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #d9d9d9;
+`;
+const ListNoticiaDestaque = styled.li`
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  position: relative;
+  margin: 25px 0px;
+  &:hover .captionImg {
+    transition: ease-in 1s;
+    color: #fff;
+    height: 100%;
+    width: 100%;
+    background-color: #0a00009c;
+  }
+`;
+const ImgNoticiaDestaque = styled.img`
+  max-height: 300px;
+  max-width: 400px;
+  height: 300px;
+`;
+const LinkNoticiaDestaque = styled.a`
+  width: 400px;
+`;
+const H3NoticiaDestaque = styled.h3`
+  font-size: 1rem;
+  width: 95%;
+  margin-bottom: 1rem;
+  margin-top: 8px;
+`;
+const LegendaNoticiaDestaque = styled.div`
+  position: absolute;
+  bottom: 5px;
+  background-color: #0a000036;
+  color: #fff;
+  height: 50px;
+  align-items: center;
+  overflow: hidden;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+`;
+
 const EmphasisNews = () => {
   const news = [
     {
@@ -28,18 +80,19 @@ const EmphasisNews = () => {
   ];
   return (
     <div>
-      <ul className="row-news-emphasis">
+      <ListsNoticiasDestaques>
         {news.map(({ id, path, title, img, desc }) => (
-          <li className="newEmphasis" key={id}>
-            <a href={path}>
-              <img src={img} alt={title} />
-              <div className="captionImg">
-                <h3>{title}</h3> <label>{desc}</label>
-              </div>
-            </a>
-          </li>
+          <ListNoticiaDestaque key={id}>
+            <LinkNoticiaDestaque href={path}>
+              <ImgNoticiaDestaque src={img} alt={title} />
+              <LegendaNoticiaDestaque className="captionImg">
+                <H3NoticiaDestaque>{title}</H3NoticiaDestaque>
+                <label>{desc}</label>
+              </LegendaNoticiaDestaque>
+            </LinkNoticiaDestaque>
+          </ListNoticiaDestaque>
         ))}
-      </ul>
+      </ListsNoticiasDestaques>
     </div>
   );
 };

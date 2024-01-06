@@ -1,8 +1,8 @@
-import Header from "./Components/Header/Header";
-import SubHeader from "./Components/Subheader/SubHeader";
-import EmphasisNews from "./Components/NoticiasDestaques/EmphasisNews";
+import Header from "./Components/Header";
+import SubHeader from "./Components/SubHeader";
+import EmphasisNews from "./Components/EmphasisNews";
 import MainNews from "./Components/MainNews/MainNews";
-import Footer from "./Components/Footer/Footer";
+import Footer from "./Components/Footer";
 import "./App.css";
 
 function App() {

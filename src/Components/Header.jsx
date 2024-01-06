@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Logo from "../../../public/logo";
+import Logo from "../../public/logo";
 import { useState } from "react";
 
 const List = styled.ul`
