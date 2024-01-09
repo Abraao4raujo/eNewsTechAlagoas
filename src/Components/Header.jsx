@@ -101,7 +101,7 @@ const Header = () => {
       <nav>
         <List>
           <DivLogo>
-            <Link href="./index.html">
+            <Link href="/">
               <DivLogoTitle>
                 <Logo />
                 <TitleLogo>eNewsTech</TitleLogo>
@@ -123,21 +123,21 @@ const Header = () => {
                     onMouseOver={() => setShowDropDownContent(true)}
                     onMouseOut={() => setShowDropDownContent(false)}
                   >
-                    <Link href="#noticia">Últimas</Link>
-                    <Link href="#esportes">Esportes</Link>
-                    <Link href="#entretenimento">Entretenimento</Link>
+                    <Link href="/noticia">Últimas</Link>
+                    <Link href="/esportes">Esportes</Link>
+                    <Link href="/entretenimento">Entretenimento</Link>
                   </DropDownContent>
                 )}
               </DropDown>
             </ItemList>
             <ItemList>
-              <Link href="#cultura">Cultura</Link>
+              <Link href="/cultura">Cultura</Link>
             </ItemList>
             <ItemList>
-              <Link href="#eventos">Eventos</Link>
+              <Link href="/eventos">Eventos</Link>
             </ItemList>
             <ItemList>
-              <Link href="#contato">Contato</Link>
+              <Link href="/contato">Contato</Link>
             </ItemList>
             <ItemListJornalist>
               <Link>Tornar-se jornalista</Link>
