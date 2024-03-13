@@ -1,6 +1,6 @@
 import ContainerNoticias from "./ContainerNoticias";
 
-const MainNews = () => {
+const SuggestNews = () => {
   return (
     <div className="main-news">
       <ContainerNoticias />
@@ -8,4 +8,4 @@ const MainNews = () => {
   );
 };
 
-export default MainNews;
+export default SuggestNews;
