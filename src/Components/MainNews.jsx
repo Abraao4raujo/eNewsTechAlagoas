@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import SuggestNews from "./MainNews/SuggestNews";
 
 const Main = styled.div`
   height: 500px;
@@ -70,37 +71,48 @@ const ImgNews = styled.img`
 
 const MainNews = () => {
   return (
-    <Main>
-      <N1N2Main>
-        <N1>
-          <ImgNews
-            src="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg"
-            alt=""
-          />
-          <LabelNs>TITULO DA NOTICIA</LabelNs>
-          <BgLinearGradient />
-        </N1>
-        <N2Little>
-          <N2>
-            <ImgNews
-              src="https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171_1280.jpg"
-              alt=""
-            />
+    <>
+      <Main>
+        <N1N2Main>
+          <N1>
+            <ImgNews src="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg" />
             <LabelNs>TITULO DA NOTICIA</LabelNs>
+            <BgLinearGradient />
+          </N1>
+          <N2Little>
+            <N2>
+              <ImgNews src="https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171_1280.jpg" />
+              <LabelNs>TITULO DA NOTICIA</LabelNs>
 
-            <BgLinearGradient />
-          </N2>
-          <N2>
-            <ImgNews
-              src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630"
-              alt=""
-            />
-            <LabelNs>TITULO DA NOTICIA</LabelNs>
-            <BgLinearGradient />
-          </N2>
-        </N2Little>
-      </N1N2Main>
-    </Main>
+              <BgLinearGradient />
+            </N2>
+            <N2>
+              <ImgNews src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" />
+              <LabelNs>TITULO DA NOTICIA</LabelNs>
+              <BgLinearGradient />
+            </N2>
+          </N2Little>
+        </N1N2Main>
+      </Main>
+      <SuggestNews
+        urlImage="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg"
+        title="Titulo Da Noticia"
+        desc="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et libero ratione fuga, totam quidem molestias tempora id velit. Vero illo nisi necessitatibus eaque quasi officiis autem sed molestiae enim ea?"
+        dataPosted="Há 7 horas atrás"
+      />
+      <SuggestNews
+        urlImage="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg"
+        title="Titulo Da Noticia"
+        desc="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et libero ratione fuga, totam quidem molestias tempora id velit. Vero illo nisi necessitatibus eaque quasi officiis autem sed molestiae enim ea?"
+        dataPosted="Há 7 horas atrás"
+      />
+      <SuggestNews
+        urlImage="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg"
+        title="Titulo Da Noticia"
+        desc="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et libero ratione fuga, totam quidem molestias tempora id velit. Vero illo nisi necessitatibus eaque quasi officiis autem sed molestiae enim ea?"
+        dataPosted="Há 7 horas atrás"
+      />
+    </>
   );
 };
 
