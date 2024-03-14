@@ -30,9 +30,9 @@ const LabelNs = styled.label`
   margin: 0px 15px 20px 15px;
   color: #fff;
   font-family: "Inter", sans-serif;
-
   position: absolute;
   z-index: 1;
+  font-weight: bold;
 `;
 
 const N2 = styled.div`
