@@ -3,16 +3,7 @@ const Footer = () => {
     <div>
       <footer>
         <div className="rodape" id="contato">
-          <label>
-            Desenvolvido por:
-            <strong>
-              Abraão Araujo, Ytalo izidoro, Rogger Carvalho e Ray Nunes
-            </strong>
-          </label>
-          <label>
-            Para entrar em contato conosco, envie uma mensagem para:
-            <strong> enewstech@gmail.com</strong>
-          </label>
+          <label>Desenvolvido por Abraão Araujo</label>
         </div>
       </footer>
     </div>

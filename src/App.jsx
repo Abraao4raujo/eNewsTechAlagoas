@@ -1,19 +1,23 @@
 import Header from "./Components/Header";
-import SubHeader from "./Components/SubHeader";
-import EmphasisNews from "./Components/EmphasisNews";
-import MainNews from "./Components/MainNews/MainNews";
+import MainNews from "./Components/MainNews";
 import Footer from "./Components/Footer";
 import "./App.css";
 
-function App() {
+function LayoutDefault({ children }) {
   return (
     <>
       <Header />
-      <SubHeader />
-      <EmphasisNews />
-      <MainNews />
+      {children}
       <Footer />
     </>
+  );
+}
+
+function App() {
+  return (
+    <LayoutDefault>
+      <MainNews />
+    </LayoutDefault>
   );
 }
 
