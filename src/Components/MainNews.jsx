@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import SuggestNews from "./MainNews/SuggestNews";
+import { Link } from "react-router-dom";
 
 const Main = styled.div`
   height: 500px;
@@ -69,49 +70,56 @@ const ImgNews = styled.img`
   border-radius: 8px;
 `;
 
-const MainNews = () => {
+const MainNews = ({ n1 }) => {
   return (
     <>
       <Main>
         <N1N2Main>
-          <N1>
-            <ImgNews src="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg" />
-            <LabelNs>TITULO DA NOTICIA</LabelNs>
-            <BgLinearGradient />
-          </N1>
-          <N2Little>
-            <N2>
-              <ImgNews src="https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171_1280.jpg" />
-              <LabelNs>TITULO DA NOTICIA</LabelNs>
+          {n1 && n1.length > 0 && (
+            <Link to={`/news/${n1[0].id}`}>
+              <N1
+                onClick={() => {
+                  console.log("a");
+                }}
+              >
+                <ImgNews src={n1[0].image_url} />
+                <LabelNs>{n1[0].title}</LabelNs>
+                <BgLinearGradient />
+              </N1>
+            </Link>
+          )}
 
-              <BgLinearGradient />
-            </N2>
-            <N2>
-              <ImgNews src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" />
-              <LabelNs>TITULO DA NOTICIA</LabelNs>
-              <BgLinearGradient />
-            </N2>
-          </N2Little>
+          {n1 && n1.length > 0 && (
+            <N2Little>
+              <Link to={`/news/${n1[1].id}`}>
+                <N2>
+                  <ImgNews src={n1[1].image_url} />
+                  <LabelNs>{n1[1].title}</LabelNs>
+                  <BgLinearGradient />
+                </N2>
+              </Link>
+              <Link to={`/news/${n1[2].id}`}>
+                <N2>
+                  <ImgNews src={n1[2].image_url} />
+                  <LabelNs>{n1[2].title}</LabelNs>
+                  <BgLinearGradient />
+                </N2>
+              </Link>
+            </N2Little>
+          )}
         </N1N2Main>
       </Main>
-      <SuggestNews
-        urlImage="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg"
-        title="Titulo Da Noticia"
-        desc="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et libero ratione fuga, totam quidem molestias tempora id velit. Vero illo nisi necessitatibus eaque quasi officiis autem sed molestiae enim ea?"
-        dataPosted="Há 7 horas atrás"
-      />
-      <SuggestNews
-        urlImage="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg"
-        title="Titulo Da Noticia"
-        desc="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et libero ratione fuga, totam quidem molestias tempora id velit. Vero illo nisi necessitatibus eaque quasi officiis autem sed molestiae enim ea?"
-        dataPosted="Há 7 horas atrás"
-      />
-      <SuggestNews
-        urlImage="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg"
-        title="Titulo Da Noticia"
-        desc="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et libero ratione fuga, totam quidem molestias tempora id velit. Vero illo nisi necessitatibus eaque quasi officiis autem sed molestiae enim ea?"
-        dataPosted="Há 7 horas atrás"
-      />
+      {n1 &&
+        n1.slice(3).map((news, index) => (
+          <Link to={`/news/${n1[0].id}`} key={index}>
+            <SuggestNews
+              urlImage={news.image_url}
+              title={news.title}
+              desc={news.desc}
+              dataPosted={news.data}
+            />
+          </Link>
+        ))}
     </>
   );
 };

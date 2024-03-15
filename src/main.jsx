@@ -1,17 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
-const index = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-  },
-]);
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import PageNews from "./Components/PageNews.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={index} />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/news/:id" element={<PageNews />} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
