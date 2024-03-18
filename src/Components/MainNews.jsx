@@ -111,7 +111,7 @@ const MainNews = ({ n1 }) => {
       </Main>
       {n1 &&
         n1.slice(3).map((news, index) => (
-          <Link to={`/news/${n1[0].id}`} key={index}>
+          <Link to={`/news/${news.id}`} key={index}>
             <SuggestNews
               urlImage={news.image_url}
               title={news.title}
