@@ -32,7 +32,10 @@ const NameLogoHeader = styled.h2`
 const Header = () => {
   return (
     <HeaderHead>
-      <NameLogoHeader>eNewsTech</NameLogoHeader>
+      <Link href="/">
+        <NameLogoHeader>eNewsTech</NameLogoHeader>
+      </Link>
+
       <NavHeader>
         <Link href="/noticias">NOTICIAS</Link>
         <Link href="/cultura">CULTURA</Link>

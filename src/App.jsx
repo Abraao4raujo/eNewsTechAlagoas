@@ -4,6 +4,8 @@ import Footer from "./Components/Footer";
 import "./App.css";
 import { useEffect, useState } from "react";
 import { getNews } from "./adapters/getNews";
+import PageNews from "./Components/PageNews.jsx";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function LayoutDefault({ children }) {
   return (
@@ -22,9 +24,27 @@ function App() {
   }, []);
 
   return (
-    <LayoutDefault>
-      <MainNews n1={n1} />
-    </LayoutDefault>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <LayoutDefault>
+              <MainNews n1={n1} />
+            </LayoutDefault>
+          }
+        />
+
+        <Route
+          path="/news/:id"
+          element={
+            <LayoutDefault>
+              <PageNews />
+            </LayoutDefault>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
