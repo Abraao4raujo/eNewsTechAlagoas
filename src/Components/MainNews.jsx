@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import SuggestNews from "./MainNews/SuggestNews";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const Main = styled.div`
   height: 500px;
@@ -71,37 +73,49 @@ const ImgNews = styled.img`
 `;
 
 const MainNews = ({ n1 }) => {
+  const [news, setNews] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3000/getNews")
+      .then((response) => {
+        setNews(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => console.error(error));
+  }, []);
+
   return (
     <>
       <Main>
         <N1N2Main>
-          {n1 && n1.length > 0 && (
-            <Link to={`/news/${n1[0].id}`}>
+          {news && news.length > 0 && (
+            <Link to={`/News/${news[0]._id}`}>
               <N1
                 onClick={() => {
                   console.log("a");
                 }}
               >
-                <ImgNews src={n1[0].image_url} />
-                <LabelNs>{n1[0].title}</LabelNs>
+                <ImgNews src={news[0].image_url} />
+                <LabelNs>{news[0].title}</LabelNs>
                 <BgLinearGradient />
               </N1>
             </Link>
           )}
 
-          {n1 && n1.length > 0 && (
+          {news && news.length > 0 && (
             <N2Little>
-              <Link to={`/news/${n1[1].id}`}>
+              <Link to={`/news/${news[1]._id}`}>
                 <N2>
-                  <ImgNews src={n1[1].image_url} />
-                  <LabelNs>{n1[1].title}</LabelNs>
+                  <ImgNews src={news[1].image_url} />
+                  <LabelNs>{news[1].title}</LabelNs>
                   <BgLinearGradient />
                 </N2>
               </Link>
-              <Link to={`/news/${n1[2].id}`}>
+              <Link to={`/news/${news[2]._id}`}>
                 <N2>
-                  <ImgNews src={n1[2].image_url} />
-                  <LabelNs>{n1[2].title}</LabelNs>
+                  <ImgNews src={news[2].image_url} />
+                  <LabelNs>{news[2].title}</LabelNs>
                   <BgLinearGradient />
                 </N2>
               </Link>
@@ -109,14 +123,14 @@ const MainNews = ({ n1 }) => {
           )}
         </N1N2Main>
       </Main>
-      {n1 &&
-        n1.slice(3).map((news, index) => (
-          <Link to={`/news/${news.id}`} key={index}>
+      {news &&
+        news.slice(3).map((newsData, index) => (
+          <Link to={`/news/${newsData._id}`} key={index}>
             <SuggestNews
-              urlImage={news.image_url}
-              title={news.title}
-              desc={news.desc}
-              dataPosted={news.data}
+              urlImage={newsData.image_url}
+              title={newsData.title}
+              desc={newsData.desc}
+              dataPosted={newsData.data}
             />
           </Link>
         ))}
