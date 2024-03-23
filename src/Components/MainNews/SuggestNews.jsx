@@ -21,7 +21,7 @@ const DivInfNews = styled.div`
 
 const ImgNews = styled.img`
   width: 28%;
-  height: 100%;
+  max-height: 170px;
   border-radius: 8px;
   cursor: pointer;
 `;

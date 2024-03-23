@@ -1,16 +1,17 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { getSpecificNews } from "../adapters/getNews";
 import styled from "styled-components";
 
 const Container = styled.div`
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
+  display: flex;
+  padding: 20px 20px;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const Image = styled.img`
-  width: 100%;
+  width: 550px;
   height: auto;
   margin-bottom: 20px;
 `;
@@ -42,16 +43,13 @@ const NewsDetail = () => {
   const [news, setNews] = useState(null);
 
   useEffect(() => {
-    const fetchNewsDetail = async () => {
-      try {
-        const newsData = await getSpecificNews(id);
-        setNews(newsData[0]);
-      } catch (error) {
-        console.error("Erro ao buscar os detalhes da notícia:", error);
-      }
-    };
-
-    fetchNewsDetail();
+    axios
+      .get(`http://localhost:3000/News/${id}`)
+      .then((response) => {
+        setNews(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => console.error(error));
   }, [id]);
 
   return (

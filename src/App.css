@@ -7,7 +7,7 @@
 
 body {
   overflow-x: hidden;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 /* container noticias com estilo atualizado */
@@ -79,7 +79,7 @@ body {
   justify-content: center;
   padding: 15px;
   width: 100%;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Inter", sans-serif;
   background: #00893c;
   color: #fff;
 }
