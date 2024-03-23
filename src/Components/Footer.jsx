@@ -1,19 +1,19 @@
 import styled from "styled-components";
 
-const Footer = () => {
+const FooterLayout = styled.footer`
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+`;
 
-  const Footer = styled.footer`
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-  `
+const Footer = () => {
   return (
     <div>
-      <Footer>
+      <FooterLayout>
         <div className="rodape" id="contato">
           <label>Desenvolvido por Abraão Araujo</label>
         </div>
-      </Footer>
+      </FooterLayout>
     </div>
   );
 };
