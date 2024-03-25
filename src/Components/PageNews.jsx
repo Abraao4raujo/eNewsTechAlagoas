@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -28,10 +28,11 @@ const Description = styled.p`
   margin-bottom: 20px;
 `;
 
-const BackLink = styled(Link)`
+const BackLink = styled.label`
   font-size: 16px;
   color: blue;
   text-decoration: none;
+  cursor: pointer;
 `;
 
 const Loading = styled.p`
@@ -43,13 +44,14 @@ const NewsDetail = () => {
   const [news, setNews] = useState(null);
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:3000/News/${id}`)
-      .then((response) => {
-        setNews(response.data);
-        console.log(response.data);
-      })
-      .catch((error) => console.error(error));
+    if (id) {
+      axios
+        .get(`http://localhost:3000/News/${id}`)
+        .then((response) => {
+          setNews(response.data);
+        })
+        .catch((error) => error);
+    }
   }, [id]);
 
   return (
@@ -59,7 +61,9 @@ const NewsDetail = () => {
           <Image src={news.image_url} alt={news.title} />
           <Title>{news.title}</Title>
           <Description>{news.desc}</Description>
-          <BackLink to="/">Voltar para a lista de notícias</BackLink>
+          <BackLink onClick={() => window.history.go(-1)}>
+            Voltar para a lista de notícias
+          </BackLink>
         </>
       ) : (
         <Loading>Carregando...</Loading>
