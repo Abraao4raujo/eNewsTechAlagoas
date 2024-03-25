@@ -5,14 +5,15 @@ import "./App.css";
 import { useState } from "react";
 import PageNews from "./Components/PageNews.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import CategoryNews from "./Components/CategoryNews.jsx";
 
 function LayoutDefault({ children }) {
   return (
-    <>
+    <div className="page-container">
       <Header />
       {children}
       <Footer />
-    </>
+    </div>
   );
 }
 
@@ -36,6 +37,15 @@ function App() {
           element={
             <LayoutDefault>
               <PageNews />
+            </LayoutDefault>
+          }
+        />
+
+        <Route
+          path="/:category"
+          element={
+            <LayoutDefault>
+              <CategoryNews />
             </LayoutDefault>
           }
         />

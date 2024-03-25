@@ -10,7 +10,11 @@ body {
   font-family: "Inter", sans-serif;
 }
 
-/* container noticias com estilo atualizado */
+.page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
 .container_div_noticias_lado_direito {
   background-color: #fff;
   border: 1px solid #eaeaea;
@@ -81,6 +85,7 @@ body {
   width: 100%;
   font-family: "Inter", sans-serif;
   background: #00893c;
+  position: absolute;
   color: #fff;
 }
 
@@ -91,8 +96,6 @@ footer {
   width: 100%;
   top: auto;
 }
-
-/****************************************************** estilo popups ******************************************************/
 
 .popupTrue {
   display: block;
@@ -109,26 +112,22 @@ footer {
   align-items: center;
 }
 
-/* AQUI É PRA AJEITAR SÓ O HEADER DO FORMS*/
 .form-header {
   display: flex;
   justify-content: center;
 }
 
-/* AQUI MEXE NO FORMS, CORES, ALINHAMENTO, TAMANHO*/
 .form {
   padding: 1rem;
 }
 
-/*AQUI MEXE NOS INPUTS COMO UM GERAL*/
+
 .connect-group {
   display: inline-flex;
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 2rem 0;
 }
-
-/*AQUI MEXE NOS INPUTS TAMBÉM*/
 
 .input-group {
   display: block;
@@ -143,7 +142,7 @@ footer {
   margin: 25px 0px;
 }
 
-/*RESUMINDO, TODOS ESSES .INPUT-BOX SERVE PRA MEXER EM ALGO NOS IMPUTS*/
+
 .input-box input {
   padding: 1.5rem 1.2rem;
   border: none;
@@ -152,22 +151,19 @@ footer {
   font-size: 0.8rem;
 }
 
-/* AQUI ELE DA UMA COR QUANDO BOTA O MOUSE EM CIMA DE CADA IMPUT*/
 .input-box input:hover {
   background-color: #eeeeee96;
 }
 
-/* AQUI, QUANDO SELECIONA O IMPUT FICA VERDE AO REDOR (ACHEI LEGAL :) */
+
 .input-box input:focus-visible {
   outline: 1px solid #00893c;
 }
 
-/* AQUI É A COR PLACEHOLDER*/
 .input-box input::placeholder {
   color: #000000be;
 }
 
-/*AQUI VC MEXE NOS CHECKBOX DA AREA DE INTERESSE*/
 .conect-group {
   align-items: center;
   display: grid;
@@ -175,19 +171,17 @@ footer {
   margin: auto;
 }
 
-/* AQUI VC MEXE NA DISTANCIA DO CHECKBOX PROS NOMES*/
 .input-conect input {
   margin-right: 0.3rem;
 }
 
-/* AQUI VC VAI MEXER NA FONTE DOS CHECKBOX */
 .input-conect label {
   font-size: 14px;
   font-weight: 600;
   color: #000000c0;
 }
 
-/* TODOS ESSES ABAIXOS SERVEM PARA O BOTÃO "ENTRAR"*/
+
 .login-button {
   width: 100%;
   display: flex;
@@ -220,7 +214,6 @@ footer {
   color: #000000;
 }
 
-/*AQUI VC MEXE NO BOTAO "CRIAR CONTA"*/
 .create-account {
   display: flex;
   justify-content: center;

@@ -90,7 +90,6 @@ const MainNews = ({ n1 }) => {
       .get("http://localhost:3000/getNews")
       .then((response) => {
         setNews(response.data);
-        console.log(response.data);
       })
       .catch((error) => console.error(error));
   }, []);
@@ -101,11 +100,7 @@ const MainNews = ({ n1 }) => {
         <N1N2Main>
           {news && news.length > 0 && (
             <Link to={`/News/${news[0]._id}`}>
-              <N1
-                onClick={() => {
-                  console.log("a");
-                }}
-              >
+              <N1>
                 <ImgNews src={news[0].image_url} />
                 <LabelNs>{news[0].title}</LabelNs>
                 <BgLinearGradient />

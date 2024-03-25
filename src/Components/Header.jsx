@@ -49,10 +49,8 @@ const Header = () => {
       </Link>
 
       <NavHeader>
-        <Link href="/noticias">NOTICIAS</Link>
         <Link href="/cultura">CULTURA</Link>
         <Link href="/eventos">EVENTOS</Link>
-        <Link href="/contato">CONTATO</Link>
         <OptionAccount onClick={() => logout()}>DESLOGAR</OptionAccount>
       </NavHeader>
     </HeaderHead>
