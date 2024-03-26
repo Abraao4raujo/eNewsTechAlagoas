@@ -1,10 +1,16 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 
-export default async function loginUser(auth, email, password, setModalAuth) {
+export default async function loginUser(
+  auth,
+  email,
+  password,
+  setUserIsConnected
+) {
   await signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
-      setModalAuth(false);
+      console.log("conectado")
+      setUserIsConnected(true);
       return user;
     })
     .catch((error) => {
