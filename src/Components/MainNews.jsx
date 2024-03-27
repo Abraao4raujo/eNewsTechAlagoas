@@ -76,14 +76,15 @@ const ImgNews = styled.img`
 
 const MainNews = () => {
   const [news, setNews] = useState([]);
-  const [modalAuth, setModalAuth] = useState({ show: false, auth: "login" });
+  const [modalAuth, setModalAuth] = useState(false);
 
   const auth = getAuth();
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      setModalAuth({ show: false });
+      console.log(user)
+      return user;
     } else {
-      setModalAuth({ show: true, auth: "login" });
+      setModalAuth(true);
     }
   });
 
@@ -141,20 +142,20 @@ const MainNews = () => {
             />
           </Link>
         ))}
-      {modalAuth.show == true && modalAuth.auth == "login" && (
+      {modalAuth && (
         <Login
           title="Login"
-          setModalAuth={setModalAuth}
           modalAuth={modalAuth}
+          setModalAuth={setModalAuth}
         />
       )}
-      {modalAuth.show == true && modalAuth.auth == "cadastro" && (
+      {/* {modalAuth.show == true && modalAuth.auth == "cadastro" && (
         <Login
           title="Cadastro"
           setModalAuth={setModalAuth}
           modalAuth={modalAuth}
         />
-      )}
+      )} */}
     </>
   );
 };

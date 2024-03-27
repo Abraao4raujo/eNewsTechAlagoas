@@ -10,6 +10,7 @@ const DivSuggestNews = styled.div`
   height: 170px;
   width: 924px;
 `;
+
 const SuggestN1 = styled.div`
   display: flex;
   flex-direction: row;

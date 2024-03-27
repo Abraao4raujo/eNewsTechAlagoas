@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import { auth } from "../services/firebaseConfig";
 import loginUser from "../services/loginUser";
@@ -11,6 +11,7 @@ const Container = styled.div`
   position: absolute;
   top: 0;
   z-index: 3;
+  display: flex;
 `;
 const Modal = styled.div`
   width: 400px;
@@ -72,15 +73,6 @@ const LabelCreateAccount = styled.div`
   font-weight: bold;
   font-family: "Inter", sans-serif;
 `;
-const DivModalContainer = styled.div`
-  width: 100%;
-  height: 100vh;
-  /* background-color: #1616162b; */
-  /* position: absolute; */
-  /* top: 0; */
-  /* z-index: 3; */
-  display: flex;
-`;
 
 const Login = ({ title, nameBtn, setModalAuth, modalAuth }) => {
   const refEmail = useRef();
@@ -89,42 +81,40 @@ const Login = ({ title, nameBtn, setModalAuth, modalAuth }) => {
 
   return modalAuth.show === true && modalAuth.auth === "login" ? (
     <Container>
-      <DivModalContainer>
-        <Modal>
-          <HeaderModal>
-            <TitleHeader>{title}</TitleHeader>
-          </HeaderModal>
-          <MainModal>
-            <Labels htmlFor="email">Email:</Labels>
-            <Inputs type="email" name="email" ref={refEmail} />
-            <Labels htmlFor="password">Senha:</Labels>
-            <Inputs type="password" name="password" ref={refPassword} />
-          </MainModal>
-          <Button
-            className="btnLogin"
-            onClick={() => {
-              if (refEmail && refPassword !== "") {
-                loginUser(
-                  auth,
-                  refEmail.current.value,
-                  refPassword.current.value,
-                  setModalAuth
-                );
-              }
-            }}
+      <Modal>
+        <HeaderModal>
+          <TitleHeader>{title}</TitleHeader>
+        </HeaderModal>
+        <MainModal>
+          <Labels htmlFor="email">Email:</Labels>
+          <Inputs type="email" name="email" ref={refEmail} />
+          <Labels htmlFor="password">Senha:</Labels>
+          <Inputs type="password" name="password" ref={refPassword} />
+        </MainModal>
+        <Button
+          className="btnLogin"
+          onClick={() => {
+            if (refEmail && refPassword !== "") {
+              loginUser(
+                auth,
+                refEmail.current.value,
+                refPassword.current.value,
+                setModalAuth
+              );
+            }
+          }}
+        >
+          Login
+        </Button>
+        <CreateAccount>
+          <label>Não possui uma conta?</label>
+          <LabelCreateAccount
+            onClick={() => setModalAuth({ show: true, auth: "cadastro" })}
           >
-            Login
-          </Button>
-          <CreateAccount>
-            <label>Não possui uma conta?</label>
-            <LabelCreateAccount
-              onClick={() => setModalAuth({ show: true, auth: "cadastro" })}
-            >
-              Criar conta
-            </LabelCreateAccount>
-          </CreateAccount>
-        </Modal>
-      </DivModalContainer>
+            Criar conta
+          </LabelCreateAccount>
+        </CreateAccount>
+      </Modal>
     </Container>
   ) : (
     <Container>

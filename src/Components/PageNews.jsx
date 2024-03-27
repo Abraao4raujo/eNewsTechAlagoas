@@ -39,6 +39,13 @@ const Loading = styled.p`
   font-size: 18px;
 `;
 
+const DivNews = styled.div`
+  align-items: center;
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+`;
+
 const NewsDetail = () => {
   const { id } = useParams();
   const [news, setNews] = useState(null);
@@ -56,18 +63,20 @@ const NewsDetail = () => {
 
   return (
     <Container>
-      {news ? (
-        <>
-          <Image src={news.image_url} alt={news.title} />
-          <Title>{news.title}</Title>
-          <Description>{news.desc}</Description>
-          <BackLink onClick={() => window.history.go(-1)}>
-            Voltar para a lista de notícias
-          </BackLink>
-        </>
-      ) : (
-        <Loading>Carregando...</Loading>
-      )}
+      <DivNews>
+        {news ? (
+          <>
+            <Image src={news.image_url} alt={news.title} />
+            <Title>{news.title}</Title>
+            <Description>{news.desc}</Description>
+            <BackLink onClick={() => window.history.go(-1)}>
+              Voltar para a lista de notícias
+            </BackLink>
+          </>
+        ) : (
+          <Loading>Carregando...</Loading>
+        )}
+      </DivNews>
     </Container>
   );
 };
