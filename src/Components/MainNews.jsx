@@ -3,7 +3,7 @@ import SuggestNews from "./MainNews/SuggestNews";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Login from "../Modals/Login";
+import Login from "../Modals/Authenticate";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const Main = styled.div`
@@ -74,7 +74,7 @@ const ImgNews = styled.img`
   border-radius: 8px;
 `;
 
-const MainNews = ({ n1 }) => {
+const MainNews = () => {
   const [news, setNews] = useState([]);
   const [modalAuth, setModalAuth] = useState(false);
 
