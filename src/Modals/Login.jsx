@@ -1,18 +1,19 @@
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import { auth } from "../services/firebaseConfig";
-import loginUser from "../services/loginUser";
-import { registerUser } from "../services/RegisterUser";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const Container = styled.div`
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-color: #1616162b;
   position: absolute;
   top: 0;
   z-index: 3;
   display: flex;
 `;
+
 const Modal = styled.div`
   width: 400px;
   height: 480px;
@@ -31,12 +32,14 @@ const TitleHeader = styled.h2`
   font-size: 2rem;
   color: #00893c;
 `;
+
 const MainModal = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   width: 60%;
 `;
+
 const Inputs = styled.input`
   width: 100%;
   height: 30px;
@@ -46,12 +49,14 @@ const Inputs = styled.input`
   margin-bottom: 25px;
   padding: 5px;
 `;
+
 const Labels = styled.div`
   font-family: "Inter", sans-serif;
   font-size: 1.1rem;
   font-weight: bold;
   margin-bottom: 5px;
 `;
+
 const Button = styled.button`
   padding: 10px 20px;
   font-family: "Inter", sans-serif;
@@ -62,11 +67,13 @@ const Button = styled.button`
   cursor: pointer;
   font-weight: bold;
 `;
+
 const CreateAccount = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
+
 const LabelCreateAccount = styled.div`
   cursor: pointer;
   color: #00893c;
@@ -74,12 +81,39 @@ const LabelCreateAccount = styled.div`
   font-family: "Inter", sans-serif;
 `;
 
-const Login = ({ title, nameBtn, setModalAuth, modalAuth }) => {
+const Login = ({ title, modalAuth, setModalAuth }) => {
   const refEmail = useRef();
   const refPassword = useRef();
   const refNome = useRef();
+  const [modalRegister, setModalRegister] = useState(false);
 
-  return modalAuth.show === true && modalAuth.auth === "login" ? (
+  async function loginUser(auth, email, password) {
+    await signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        setModalAuth(false);
+        return user;
+      })
+      .catch((error) => {
+        window.alert("Dados invalidos!");
+      });
+  }
+
+  async function registerUser(auth, email, password) {
+    await createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        console.log("Usuario cadastrado com sucesso! ");
+        setModalAuth(false);
+        return userCredential.user;
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log("Não foi possivel cadastrar usuario no momento!");
+      });
+  }
+
+  return modalRegister === false ? (
     <Container>
       <Modal>
         <HeaderModal>
@@ -98,8 +132,7 @@ const Login = ({ title, nameBtn, setModalAuth, modalAuth }) => {
               loginUser(
                 auth,
                 refEmail.current.value,
-                refPassword.current.value,
-                setModalAuth
+                refPassword.current.value
               );
             }
           }}
@@ -108,9 +141,7 @@ const Login = ({ title, nameBtn, setModalAuth, modalAuth }) => {
         </Button>
         <CreateAccount>
           <label>Não possui uma conta?</label>
-          <LabelCreateAccount
-            onClick={() => setModalAuth({ show: true, auth: "cadastro" })}
-          >
+          <LabelCreateAccount onClick={() => setModalRegister(true)}>
             Criar conta
           </LabelCreateAccount>
         </CreateAccount>
@@ -144,9 +175,7 @@ const Login = ({ title, nameBtn, setModalAuth, modalAuth }) => {
         </Button>
         <CreateAccount>
           <label>Possui uma conta?</label>
-          <LabelCreateAccount
-            onClick={() => setModalAuth({ show: true, auth: "login" })}
-          >
+          <LabelCreateAccount onClick={() => setModalRegister(false)}>
             Entrar com conta existente
           </LabelCreateAccount>
         </CreateAccount>
