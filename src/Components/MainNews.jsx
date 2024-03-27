@@ -3,7 +3,7 @@ import SuggestNews from "./MainNews/SuggestNews";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Login from "../Modals/Authenticate";
+import Login from "../Modals/Login";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const Main = styled.div`
@@ -74,14 +74,13 @@ const ImgNews = styled.img`
   border-radius: 8px;
 `;
 
-const MainNews = () => {
+const MainNews = ({ n1 }) => {
   const [news, setNews] = useState([]);
   const [modalAuth, setModalAuth] = useState(false);
 
   const auth = getAuth();
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      console.log(user)
       return user;
     } else {
       setModalAuth(true);
@@ -149,13 +148,6 @@ const MainNews = () => {
           setModalAuth={setModalAuth}
         />
       )}
-      {/* {modalAuth.show == true && modalAuth.auth == "cadastro" && (
-        <Login
-          title="Cadastro"
-          setModalAuth={setModalAuth}
-          modalAuth={modalAuth}
-        />
-      )} */}
     </>
   );
 };
